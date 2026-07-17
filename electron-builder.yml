@@ -1,0 +1,73 @@
+appId: com.utterpulsar.crazyos
+productName: Crazy OS
+copyright: Copyright © 2026 Utter_pulsar
+
+directories:
+  buildResources: build
+  output: dist
+
+asar: true
+
+# electron-builder always adds package.json and production node_modules. The
+# renderer, preload and main-process bundles are the only project files needed
+# inside the application archive.
+files:
+  - out/**/*
+
+# The main process reads this exact path in packaged builds for the window and
+# tray icon. Keep it outside app.asar at process.resourcesPath/icon.png.
+extraResources:
+  - from: resources/icon.png
+    to: icon.png
+
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  perMachine: false
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Crazy OS
+  artifactName: Crazy-OS-${version}-windows-${arch}-setup.${ext}
+
+mac:
+  category: public.app-category.productivity
+  target:
+    - target: dmg
+      arch:
+        - x64
+        - arm64
+    - target: zip
+      arch:
+        - x64
+        - arm64
+  artifactName: Crazy-OS-${version}-macos-${arch}.${ext}
+
+linux:
+  category: Utility
+  syncDesktopName: true
+  executableName: crazy-os
+  maintainer: Utter_pulsar <noreply@crazy-os.app>
+  synopsis: A hand-drawn Agent OS driven by the Crazy assistant
+  description: Crazy OS is an experimental, hand-drawn Agent OS where one AI assistant can operate system settings, files and generated applications.
+  target:
+    - target: AppImage
+      arch:
+        - x64
+    - target: deb
+      arch:
+        - x64
+  artifactName: Crazy-OS-${version}-linux-${arch}.${ext}
+
+# This does not upload anything by itself (`dist:*` always uses --publish never).
+# It embeds the GitHub feed into app-update.yml and generates latest*.yml metadata
+# for the maintainer to attach to a published Release manually.
+publish:
+  provider: github
+  owner: Utter-pulsar
+  repo: crazy-os

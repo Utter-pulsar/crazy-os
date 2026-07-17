@@ -1,0 +1,2 @@
+imgs/*.gif filter=lfs diff=lfs merge=lfs -text
+references/fonts/*.ttf filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,232 @@
+/* Primary hand-drawn Latin face + Chinese handwriting face. Both ship in public/fonts/,
+   so the app needs no network. Excalifont has no CJK glyphs → the stack falls back to
+   Xiaolai (小赖) for Chinese while English/numbers stay Excalifont. */
+@font-face {
+  font-family: 'Excalifont';
+  src: url('/fonts/Excalifont-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Xiaolai';
+  src: url('/fonts/Xiaolai-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme tokens. Channels are space-separated RGB so Tailwind's `/<alpha>` works
+   (e.g. border-ink/80). Dark mode = `.dark` class on <html> (set by the store). */
+:root {
+  --paper: 251 247 239;
+  --ink: 43 43 43;
+  --card: 255 255 255;
+  --grain: rgba(43, 43, 43, 0.05);
+  --shadow: rgba(43, 43, 43, 0.85);
+}
+:root.dark {
+  --paper: 26 22 18;
+  --ink: 232 228 219;
+  --card: 42 36 32;
+  --grain: rgba(232, 228, 219, 0.07);
+  --shadow: rgba(0, 0, 0, 0.55);
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    overflow: hidden;
+    font-family: theme('fontFamily.doodle');
+    color: rgb(var(--ink));
+    background-color: rgb(var(--paper));
+    background-image: radial-gradient(var(--grain) 1px, transparent 1px);
+    background-size: 18px 18px;
+    -webkit-font-smoothing: antialiased;
+    /* app-like feel: text isn't selectable... */
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  /* ...except where you actually type */
+  input,
+  textarea,
+  [contenteditable='true'] {
+    user-select: text;
+    -webkit-user-select: text;
+  }
+}
+
+/* Hand-drawn wobble for straight-edged SVG icons (see <DoodleFilter />). */
+.doodle-edge {
+  filter: url(#doodle-wobble);
+}
+
+/* Frameless window: only the TitleBar drags the window; controls/menu opt out. */
+.app-drag {
+  -webkit-app-region: drag;
+}
+.app-no-drag {
+  -webkit-app-region: no-drag;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-12deg);
+  }
+  50% {
+    transform: rotate(12deg);
+  }
+}
+
+/* While any window is being dragged/resized, iframes must not swallow pointer events
+   (the class sits on the App root; see WindowFrame). */
+.iframes-inert iframe {
+  pointer-events: none !important;
+}
+
+/* Soft drop shadow so overlapping windows read as distinct layers. */
+.window-shadow {
+  box-shadow:
+    6px 9px 0 -1px var(--shadow),
+    0 14px 34px -10px rgba(0, 0, 0, 0.35);
+}
+
+/* --- hand-drawn overlay scrollbar for built-in React apps (see useDoodleScrollbar) --- */
+.doodle-scroll-host {
+  scrollbar-width: none; /* Firefox */
+}
+.doodle-scroll-host::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+.doodle-scrollthumb {
+  position: absolute;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  touch-action: none;
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+.doodle-scrollthumb-bar {
+  background: rgb(var(--ink) / 0.38);
+  border-radius: 999px;
+  transition:
+    width 130ms ease,
+    height 130ms ease,
+    background-color 150ms ease;
+}
+.doodle-scrollthumb.is-vertical .doodle-scrollthumb-bar {
+  width: 3px;
+  height: 100%;
+}
+.doodle-scrollthumb.is-horizontal .doodle-scrollthumb-bar {
+  width: 100%;
+  height: 3px;
+}
+.doodle-scrollthumb:hover .doodle-scrollthumb-bar,
+.doodle-scrollthumb.dragging .doodle-scrollthumb-bar {
+  background: rgb(var(--ink) / 0.72);
+}
+.doodle-scrollthumb.is-vertical:hover .doodle-scrollthumb-bar,
+.doodle-scrollthumb.is-vertical.dragging .doodle-scrollthumb-bar {
+  width: 8px;
+}
+.doodle-scrollthumb.is-horizontal:hover .doodle-scrollthumb-bar,
+.doodle-scrollthumb.is-horizontal.dragging .doodle-scrollthumb-bar {
+  height: 8px;
+}
+
+/* marquee (box-select) rectangle in the file manager */
+.marquee-box {
+  position: absolute;
+  z-index: 30;
+  border: 2px dashed rgb(var(--ink) / 0.5);
+  background: rgb(var(--ink) / 0.06);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+/* --- window resize handles: invisible hit areas on edges/corners; the inner bar is a
+   hand-drawn stroke that appears (thin) on hover and thickens while grabbed --- */
+.rzh {
+  position: absolute;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+}
+.rzh-n  { top: -5px;    left: 14px;  right: 14px;  height: 10px; }
+.rzh-s  { bottom: -5px; left: 14px;  right: 14px;  height: 10px; }
+.rzh-e  { right: -5px;  top: 14px;   bottom: 14px; width: 10px; }
+.rzh-w  { left: -5px;   top: 14px;   bottom: 14px; width: 10px; }
+.rzh-ne { top: -7px;    right: -7px; width: 18px;  height: 18px; }
+.rzh-nw { top: -7px;    left: -7px;  width: 18px;  height: 18px; }
+.rzh-se { bottom: -7px; right: -7px; width: 18px;  height: 18px; }
+.rzh-sw { bottom: -7px; left: -7px;  width: 18px;  height: 18px; }
+
+.rzh-bar {
+  background: rgb(var(--ink) / 0);
+  border-radius: 999px;
+  filter: url(#doodle-wobble);
+  transition:
+    background-color 140ms ease,
+    width 140ms ease,
+    height 140ms ease;
+}
+.rzh-n .rzh-bar, .rzh-s .rzh-bar { width: 46%; height: 3px; }
+.rzh-e .rzh-bar, .rzh-w .rzh-bar { width: 3px; height: 46%; }
+.rzh-ne .rzh-bar, .rzh-nw .rzh-bar, .rzh-se .rzh-bar, .rzh-sw .rzh-bar {
+  width: 8px;
+  height: 8px;
+}
+.rzh:hover .rzh-bar, .rzh:active .rzh-bar {
+  background: rgb(var(--ink) / 0.6);
+}
+.rzh-n:active .rzh-bar, .rzh-s:active .rzh-bar { height: 6px; }
+.rzh-e:active .rzh-bar, .rzh-w:active .rzh-bar { width: 6px; }
+
+/* --- title-bar generation progress --- */
+@keyframes progress-sweep {
+  0%   { left: -34%; }
+  100% { left: 102%; }
+}
+.progress-sweep {
+  animation: progress-sweep 1.15s linear infinite;
+}
+@keyframes progress-pulse {
+  0%, 100% { opacity: 0.45; }
+  50%      { opacity: 1; }
+}
+.progress-current {
+  animation: progress-pulse 0.95s ease-in-out infinite;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--ink) / 0.28);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--ink) / 0.5);
+}
