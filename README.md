@@ -32,7 +32,7 @@
   <tr>
     <td width="50%" align="center">
       <img src="./imgs/time_changing.gif" alt="Let the Crazy assistant adjust the desktop time" width="100%" /><br />
-      <b>Adjust the desktop to match your ideas</b>
+      <b>Adjust the desktop</b>
     </td>
     <td width="50%" align="center">
       <img src="./imgs/search_app.gif" alt="Crazy browser and multiple tabs" width="100%" /><br />
