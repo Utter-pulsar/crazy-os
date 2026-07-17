@@ -35,12 +35,13 @@
       <b>浏览与生成内容</b>
     </td>
   </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <img src="./imgs/change_app.gif" alt="按用户想法修改app" width="70%" /><br />
+      <b>按用户想法修改应用</b>
+    </td>
+  </tr>
 </table>
-
-<div align="center">
-  <img src="./imgs/change_app.gif" alt="按用户想法修改app" width="70%" /><br />
-  <b>按用户想法修改应用</b>
-</div>
 
 <br />
 
