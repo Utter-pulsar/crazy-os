@@ -36,16 +36,12 @@
     </td>
   </tr>
 </table>
-<tr>
-<td width="50%" align="center">
-<center>
-    <img src="./imgs/change_app.gif" alt="按用户想法修改app" width="70%" /><br />
-</center>
-    <center>
-      <b>按用户想法修改应用</b>
-    </center>
-</td>
-</tr>
+
+<div align="center">
+  <img src="./imgs/change_app.gif" alt="按用户想法修改app" width="70%" /><br />
+  <b>按用户想法修改应用</b>
+</div>
+
 <br />
 
 Crazy OS 是我心目中 **Agent OS 应该长的样子**。用户使用OS无非是处理信息、整理文件、浏览内容。你和OS的所有交互本质都是Crazy助手在背后偷偷的支持。Crazy 助手可以陪你一起管理：它可以替你整理文件、改变系统设置、展示任何想看的内容，也可以根据一句描述创造一个新应用。应用会随着你的使用继续变化，按钮、页面和内容都能在原来的界面上自然生长。
