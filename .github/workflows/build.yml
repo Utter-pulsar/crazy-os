@@ -87,3 +87,65 @@ jobs:
           if-no-files-found: error
           compression-level: 0
           retention-days: 14
+
+  release:
+    name: Publish GitHub release
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download Windows artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: crazy-os-windows-x64
+          path: release-assets/windows
+
+      - name: Download macOS artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: crazy-os-macos
+          path: release-assets/macos
+
+      - name: Download Linux artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: crazy-os-linux-x64
+          path: release-assets/linux
+
+      - name: Create or update GitHub release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          shopt -s nullglob
+
+          files=(
+            release-assets/windows/*.exe
+            release-assets/windows/latest*.yml
+            release-assets/windows/*.blockmap
+            release-assets/macos/*.dmg
+            release-assets/macos/*.zip
+            release-assets/macos/latest*.yml
+            release-assets/macos/*.blockmap
+            release-assets/linux/*.AppImage
+            release-assets/linux/*.deb
+            release-assets/linux/latest*.yml
+            release-assets/linux/*.blockmap
+          )
+
+          if [ "${#files[@]}" -eq 0 ]; then
+            echo "::error::No release assets were downloaded."
+            exit 1
+          fi
+
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" "${files[@]}" --clobber
+          else
+            gh release create "$GITHUB_REF_NAME" "${files[@]}" \
+              --title "Crazy OS $GITHUB_REF_NAME" \
+              --generate-notes
+          fi

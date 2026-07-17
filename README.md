@@ -1,8 +1,8 @@
 <div align="center">
   <img src="./imgs/title.svg" alt="Crazy OS" width="560" />
 
-  <h3>你心里怎么想，系统就怎么生长。</h3>
-  <p>一个由 Crazy 助手管理的手绘 Agent OS：说出你的想法，剩下的交给它。</p>
+  <h3>你想干啥，系统就干啥。</h3>
+  <p>一个由 Crazy 助手管理的手绘 Agent OS。</p>
 
   <p>
     <a href="./LICENSE"><img alt="GNU GPL v3" src="https://img.shields.io/badge/license-GPLv3-F4512A.svg" /></a>
