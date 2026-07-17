@@ -4,4 +4,8 @@ dist/
 *.log
 .DS_Store
 .env
-scripts/
+scripts/*
+!scripts/make_icon_transparent.py
+!scripts/generate_packaging_icons.py
+scripts/__pycache__/
+.claude/

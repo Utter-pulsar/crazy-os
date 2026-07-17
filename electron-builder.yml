@@ -21,6 +21,7 @@ extraResources:
     to: icon.png
 
 win:
+  icon: build/icon.ico
   target:
     - target: nsis
       arch:
@@ -33,9 +34,12 @@ nsis:
   createDesktopShortcut: true
   createStartMenuShortcut: true
   shortcutName: Crazy OS
+  installerIcon: build/installerIcon.ico
+  uninstallerIcon: build/uninstallerIcon.ico
   artifactName: Crazy-OS-${version}-windows-${arch}-setup.${ext}
 
 mac:
+  icon: build/icon.icns
   category: public.app-category.productivity
   target:
     - target: dmg
@@ -49,6 +53,7 @@ mac:
   artifactName: Crazy-OS-${version}-macos-${arch}.${ext}
 
 linux:
+  icon: build/icons
   category: Utility
   syncDesktopName: true
   executableName: crazy-os
