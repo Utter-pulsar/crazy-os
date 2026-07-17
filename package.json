@@ -1,6 +1,6 @@
 {
   "name": "crazy_os",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "An AI-rendered, hand-drawn imaginary operating system. The UI is a file the model writes; the app renders it live.",
   "desktopName": "Crazy OS",
   "main": "./out/main/index.js",
