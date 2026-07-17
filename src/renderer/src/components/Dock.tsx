@@ -2,6 +2,7 @@ import { useRef, useState, type JSX, type ReactNode } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { DoodleBox } from './DoodleBox'
 import { Icon } from './Icon'
+import { appIconUrl } from '../assets'
 import { topWindow, useStore, type WinState } from '../store'
 
 /**
@@ -99,7 +100,7 @@ export function Dock(): JSX.Element {
             <div className="mx-1 h-9 w-[2px] self-center rounded bg-ink/15" />
             <DockIcon label={agentOpen ? '收起 crazy 助手' : 'crazy 助手'} onClick={toggleAgent} markAgentToggle>
               <span className={`transition ${agentOpen ? '' : 'opacity-90'}`}>
-                <img src="/icon.png" alt="" className="h-9 w-9" draggable={false} />
+                <img src={appIconUrl} alt="" className="h-9 w-9" draggable={false} />
               </span>
             </DockIcon>
           </motion.div>

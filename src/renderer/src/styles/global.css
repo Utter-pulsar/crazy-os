@@ -1,16 +1,17 @@
-/* Primary hand-drawn Latin face + Chinese handwriting face. Both ship in public/fonts/,
-   so the app needs no network. Excalifont has no CJK glyphs → the stack falls back to
-   Xiaolai (小赖) for Chinese while English/numbers stay Excalifont. */
+/* Primary hand-drawn Latin face + Chinese handwriting face. Both live in the renderer
+   asset graph, so Vite rewrites them for both dev and packaged builds. Excalifont has
+   no CJK glyphs → the stack falls back to Xiaolai (小赖) for Chinese while English/
+   numbers stay Excalifont. */
 @font-face {
   font-family: 'Excalifont';
-  src: url('/fonts/Excalifont-Regular.woff2') format('woff2');
+  src: url('../assets/fonts/Excalifont-Regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Xiaolai';
-  src: url('/fonts/Xiaolai-Regular.ttf') format('truetype');
+  src: url('../assets/fonts/Xiaolai-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

@@ -1,6 +1,7 @@
 import { type JSX, useEffect, useState } from 'react'
 import type { AppInfo, UpdateStatus } from '@shared/types'
 import { useStore } from '../../store'
+import { appIconUrl } from '../../assets'
 import { DialogShell } from '../DialogShell'
 
 const UPDATE_REPO = 'https://github.com/Utter-pulsar/crazy-os'
@@ -52,7 +53,7 @@ export function VersionDialog({ onClose }: { onClose: () => void }): JSX.Element
   return (
     <DialogShell onClose={onClose} width="w-[340px]">
       <div className="flex flex-col items-center gap-2 text-center">
-        <img src="/icon.png" alt="" className="h-16 w-16" />
+        <img src={appIconUrl} alt="" className="h-16 w-16" />
         <div className="text-2xl font-bold">{info?.name ?? 'Crazy OS'}</div>
         <div className="text-base opacity-70">版本 {info?.version ?? '…'}</div>
         <div className="text-sm opacity-50">作者 {info?.author ?? 'Utter_pulsar'}</div>

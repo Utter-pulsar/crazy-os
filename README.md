@@ -1,8 +1,8 @@
 <div align="center">
   <img src="./imgs/title.svg" alt="Crazy OS" width="560" />
 
-  <h3>你想干啥，系统就干啥。</h3>
-  <p>一个由 Crazy 助手管理的手绘 Agent OS。</p>
+  <h3>Whatever you want to do, the system makes it happen.</h3>
+  <p>A hand-drawn Agent OS managed by the Crazy assistant.</p>
 
   <p>
     <a href="./LICENSE"><img alt="GNU GPL v3" src="https://img.shields.io/badge/license-GPLv3-F4512A.svg" /></a>
@@ -10,6 +10,10 @@
     <img alt="Electron 42" src="https://img.shields.io/badge/Electron-42-47848F.svg?logo=electron&logoColor=white" />
     <img alt="Status" src="https://img.shields.io/badge/status-growing-FFD23F.svg" />
   </p>
+
+  <h4>
+    English &nbsp;|&nbsp; <a href="./README.zh-CN.md">简体中文</a>
+  </h4>
 </div>
 
 <br />
@@ -17,121 +21,121 @@
 <table>
   <tr>
     <td width="50%" align="center">
-      <img src="./imgs/open_apps.gif" alt="让 Crazy 助手创建和打开应用" width="100%" /><br />
-      <b>一句话创建应用</b>
+      <img src="./imgs/open_apps.gif" alt="Let the Crazy assistant create and open apps" width="100%" /><br />
+      <b>Create an app with one sentence</b>
     </td>
     <td width="50%" align="center">
-      <img src="./imgs/system_operation.gif" alt="让 Crazy 助手控制系统和文件" width="100%" /><br />
-      <b>管理系统与文件</b>
+      <img src="./imgs/system_operation.gif" alt="Let the Crazy assistant control the system and files" width="100%" /><br />
+      <b>Manage the system and files</b>
     </td>
   </tr>
   <tr>
     <td width="50%" align="center">
-      <img src="./imgs/time_changing.gif" alt="让 Crazy 助手调整桌面时间" width="100%" /><br />
-      <b>按想法调整桌面</b>
+      <img src="./imgs/time_changing.gif" alt="Let the Crazy assistant adjust the desktop time" width="100%" /><br />
+      <b>Adjust the desktop to match your ideas</b>
     </td>
     <td width="50%" align="center">
-      <img src="./imgs/search_app.gif" alt="Crazy 浏览器与多标签页" width="100%" /><br />
-      <b>浏览与生成内容</b>
+      <img src="./imgs/search_app.gif" alt="Crazy browser and multiple tabs" width="100%" /><br />
+      <b>Browse and generate content</b>
     </td>
   </tr>
   <tr>
     <td colspan="2" align="center">
-      <img src="./imgs/change_app.gif" alt="按用户想法修改app" width="70%" /><br />
-      <b>按用户想法修改应用</b>
+      <img src="./imgs/change_app.gif" alt="Modify an app based on the user's ideas" width="70%" /><br />
+      <b>Modify apps based on the user's ideas</b>
     </td>
   </tr>
 </table>
 
 <br />
 
-Crazy OS 是我心目中 **Agent OS 应该长的样子**。用户使用OS无非是处理信息、整理文件、浏览内容。你和OS的所有交互本质都是Crazy助手在背后偷偷的支持。Crazy 助手可以陪你一起管理：它可以替你整理文件、改变系统设置、展示任何想看的内容，也可以根据一句描述创造一个新应用。应用会随着你的使用继续变化，按钮、页面和内容都能在原来的界面上自然生长。
+Crazy OS is **what I think an Agent OS should look like**. In the end, people use an OS to handle information, organize files, and browse content. Every interaction you have with the OS is essentially supported behind the scenes by the Crazy assistant. The Crazy assistant can manage things alongside you: it can organize files for you, change system settings, show any content you want to see, and create a brand-new app from a single sentence of description. Apps continue to change as you use them, and buttons, pages, and content can all grow naturally on the existing interface.
 
-Crazy OS是一个信息文件、Crazy助手、展示界面和平共处的地方~
+Crazy OS is a place where information and files, the Crazy assistant, and visual interfaces coexist peacefully~
 
-> 请注意：本项目不具备任何生产力，单纯是个人对AgentOS的畅想~ 哈哈
+> Please note: this project is not practical in any productive sense. It is purely my personal imagination of an Agent OS~ haha
 
-## 功能特性
+## Features
 
-- 🧠&nbsp;&nbsp;**Crazy 助手掌管整个桌面** — 用聊天控制系统、文件和应用，并随时看到它正在做什么。
-- 🗂️&nbsp;&nbsp;**随口安排文件** — 创建、读取、改名、移动、删除和恢复文件或文件夹，也能在任意位置放置快捷方式。
-- ✨&nbsp;&nbsp;**需要什么就创造什么** — 第一次打开新应用时，Crazy 会现场完成安装，并把首页与可用的交互一起准备好。
-- 🪄&nbsp;&nbsp;**界面会实时生长** — 新内容会逐步出现在原来的页面中，已经显示的部分会尽量保留，不会突然闪成空白。
-- 🏠&nbsp;&nbsp;**每次打开都有熟悉的首页** — 应用会记住稳定的首页和长期数据，临时浏览与一次性变化会在关闭后收好。
-- 🌐&nbsp;&nbsp;**会思考的多标签浏览器** — 每个标签页各自保留页面、历史和生成进度，搜索、跳转与页内内容都能继续交给 Crazy。
-- 💬&nbsp;&nbsp;**固定界面也能快速对话** — 聊天窗口等应用可以只生成新回复，保持原来的布局，减少等待。
-- 🧭&nbsp;&nbsp;**工作途中也能改变主意** — Crazy 忙碌时仍可追加新要求，它会把新的想法接进正在进行的任务。
-- 🎨&nbsp;&nbsp;**手绘风格无处不在** — Excalidraw 字体、纸张网格、涂鸦边框、弹性动效，以及浅色与深色模式。
-- 🔌&nbsp;&nbsp;**自由选择 Crazy 模型** — 可以保存并切换多个模型配置，兼容常见的 OpenAI、Responses 与 Anthropic 接口。
-- 🔄&nbsp;&nbsp;**一键检查更新** — 在版本界面检查 `Utter-pulsar/crazy-os`；发现新版本后会继续下载、安装并重新打开应用。
-- 🖥️&nbsp;&nbsp;**跨平台** — 支持 Windows、macOS 与 Linux。
+- 🧠&nbsp;&nbsp;**The Crazy assistant runs the entire desktop** — Control the system, files, and apps through chat, and always see what it is doing.
+- 🗂️&nbsp;&nbsp;**Handle files however you ask** — Create, read, rename, move, delete, and restore files or folders, and place shortcuts anywhere.
+- ✨&nbsp;&nbsp;**If you need it, create it** — The first time you open a new app, Crazy finishes the installation on the spot and prepares the home page and available interactions for you.
+- 🪄&nbsp;&nbsp;**The interface grows in real time** — New content appears gradually on the original page, and the parts that are already visible are preserved as much as possible instead of suddenly flashing blank.
+- 🏠&nbsp;&nbsp;**A familiar home page every time you open it** — Apps remember stable home pages and long-term data, while temporary browsing and one-off changes are tucked away after closing.
+- 🌐&nbsp;&nbsp;**A multi-tab browser that can think** — Each tab keeps its own page, history, and generation progress, and searches, jumps, and in-page content can all continue to be handled by Crazy.
+- 💬&nbsp;&nbsp;**Fixed interfaces can still chat quickly** — Apps such as chat windows can generate only new replies while keeping the original layout, reducing waiting.
+- 🧭&nbsp;&nbsp;**You can still change your mind mid-task** — Even while Crazy is busy, you can add new requests, and it will weave the new ideas into the task already in progress.
+- 🎨&nbsp;&nbsp;**The hand-drawn style is everywhere** — Excalidraw fonts, paper grids, doodled borders, elastic motion, plus light and dark modes.
+- 🔌&nbsp;&nbsp;**Freely choose the Crazy model** — You can save and switch between multiple model configurations, with compatibility for common OpenAI, Responses, and Anthropic APIs.
+- 🔄&nbsp;&nbsp;**Check for updates with one click** — From the Version screen, check `Utter-pulsar/crazy-os`; when a new version is found, the app will download, install, and reopen itself.
+- 🖥️&nbsp;&nbsp;**Cross-platform** — Supports Windows, macOS, and Linux.
 
-## 为什么要做 Crazy OS？
+## Why build Crazy OS?
 
-我一直希望电脑能够更直接地理解人。想整理文件时，只需要说清楚想放在哪里；想看某种内容时，它可以立刻做出合适的窗口；想到一个从未安装过的工具时，桌面也能当场把它创造出来。
+I have always hoped that computers could understand people more directly. When you want to organize files, you should only need to say clearly where you want them to go. When you want to see a certain kind of content, it should be able to immediately create a suitable window. And when you think of a tool that has never been installed before, the desktop should be able to create it right on the spot.
 
-于是我开始做 Crazy OS，把自己对 Agent OS 的想象一点点放进这个手绘桌面里。Crazy 助手是整个系统的中心，也是系统本身。它负责理解、行动、展示过程，也负责陪着应用持续变化。这里的每个功能都在靠近同一个目标：**用户只需描述，Crazy助手负责完成所有功能。**
+So I started building Crazy OS, little by little placing my imagination of an Agent OS into this hand-drawn desktop. The Crazy assistant is the center of the entire system, and also the system itself. It is responsible for understanding, acting, showing the process, and staying with apps as they continue to change. Every feature here moves toward the same goal: **the user only needs to describe what they want, and the Crazy assistant is responsible for making everything happen.**
 
-这是一个非常个人化、也仍在成长的项目。如果你有新的想法、希望 Crazy 学会的能力，或者遇到了奇怪的问题，欢迎提交 [Issue](https://github.com/Utter-pulsar/crazy-os/issues)。我也很想知道你心目中的 Agent OS 会是什么样子嘿嘿。
+This is a very personal project, and it is still growing. If you have new ideas, capabilities you want Crazy to learn, or strange problems you run into, feel free to open an [Issue](https://github.com/Utter-pulsar/crazy-os/issues). I would also really love to know what the Agent OS in your mind would look like, hehe.
 
-## 开始使用
+## Getting Started
 
-Crazy OS 使用 Electron + Vite + React 构建，需要 Node.js 22.12.0 或更高版本。
+Crazy OS is built with Electron + Vite + React and requires Node.js 22.12.0 or later.
 
 ```bash
-# 安装依赖
+# Install dependencies
 npm ci
 
-# 启动开发模式
+# Start development mode
 npm run dev
 
-# 检查代码并生成生产版本
+# Check the code and build the production version
 npm run typecheck
 npm run build
 ```
 
-第一次进入后，打开底部 Dock 的「系统设置」，进入「**Crazy 模型**」，填写你使用的 API 地址、模型名称与 API Key，测试连接后启用即可。可以保存多个模型配置，并在 Crazy 助手中随时切换。
+After launching it for the first time, open "System Settings" from the bottom Dock, go to "**Crazy Model**", fill in the API endpoint, model name, and API key you use, then test the connection and enable it. You can save multiple model configurations and switch between them in the Crazy assistant at any time.
 
-为不同系统制作安装包：
+Build installers for different systems:
 
 ```bash
-npm run package       # 当前平台的未打包版本
-npm run dist:win      # Windows x64 安装程序
+npm run package       # Unpacked version for the current platform
+npm run dist:win      # Windows x64 installer
 npm run dist:mac      # macOS Intel + Apple Silicon
 npm run dist:linux    # Linux x64 AppImage + deb
 ```
 
-安装包会出现在 `dist/`。Windows、macOS 和 Linux 安装包需要在各自的系统上构建。
+The installers will appear in `dist/`. Windows, macOS, and Linux installers need to be built on their respective systems.
 
-**macOS 安装说明**
+**macOS installation notes**
 
-打开 DMG 后，将 `Crazy OS.app` 拖进「应用程序」。目前手动构建的 macOS 安装包可能没有 Apple 开发者签名；如果系统确认应用已损坏或无法验证开发者，请先确认安装包来自本项目的正式 Release，再在终端执行：
+After opening the DMG, drag `Crazy OS.app` into Applications. Manually built macOS installers may not currently have an Apple developer signature. If the system says the app is damaged or the developer cannot be verified, first make sure the installer came from this project's official Release, then run the following in Terminal:
 
 ```bash
-# 清除下载文件的隔离属性
+# Clear the quarantine attribute from the downloaded app
 sudo xattr -cr "/Applications/Crazy OS.app"
 
-# 如果仍然无法打开，可以补一份本地临时签名
+# If it still will not open, add a temporary local signature
 sudo codesign --force --deep --sign - "/Applications/Crazy OS.app"
 ```
 
-**Linux 安装说明**
+**Linux installation notes**
 
-AppImage 不需要安装，赋予执行权限后即可打开：
+AppImage does not require installation. After granting execute permission, you can open it directly:
 
 ```bash
 chmod +x ./Crazy-OS-*-linux-x64.AppImage
 ./Crazy-OS-*-linux-x64.AppImage
 ```
 
-使用 DEB 安装包时，可以执行：
+When using the DEB installer, you can run:
 
 ```bash
 DEB=./Crazy-OS-x.x.x-linux-x64.deb
 sudo apt install -y "$DEB"
 ```
 
-如果启动时提示 `chrome-sandbox` 权限不正确，再修复它的所有者和 setuid 权限，并刷新桌面图标缓存：
+If startup reports that the `chrome-sandbox` permissions are incorrect, fix its owner and setuid permissions, then refresh the desktop icon cache:
 
 ```bash
 sudo chown root:root "/opt/Crazy OS/chrome-sandbox"
@@ -139,24 +143,24 @@ sudo chmod 4755 "/opt/Crazy OS/chrome-sandbox"
 sudo gtk-update-icon-cache -f /usr/share/icons/hicolor
 ```
 
-发布版可以从左上角三条杠进入「版本」，点击「检查更新」。Crazy OS 会检查 [Utter-pulsar/crazy-os](https://github.com/Utter-pulsar/crazy-os) 的正式 Release；如果发现更高版本，会自动下载、安装并重启。开发模式不会检查更新。macOS 自动更新需要经过有效签名，Linux 推荐使用 AppImage 版本。
+In the release build, open "Version" from the three-line menu in the upper-left corner and click "Check for Updates". Crazy OS will check the official Release of [Utter-pulsar/crazy-os](https://github.com/Utter-pulsar/crazy-os). If it finds a newer version, it will automatically download, install, and relaunch. Development mode does not check for updates. macOS auto-update requires valid signing, and on Linux the AppImage version is recommended.
 
 
-## 技术栈
+## Tech Stack
 
 Electron 42 · electron-vite 5 · React 19 · TypeScript 6 · Zustand 5 · Tailwind CSS 3 · Framer Motion · Rough.js
 
-## 状态与计划
+## Status and Plans
 
-Crazy OS 还在积极生长。目前已经可以通过 Crazy 助手管理桌面、文件与应用，也建立了应用首页、临时页面、实时更新和浏览器标签隔离等基础体验。
+Crazy OS is still actively growing. Right now it can already use the Crazy assistant to manage the desktop, files, and apps, and it has established foundational experiences such as app home pages, temporary pages, real-time updates, and browser tab isolation.
 
-接下来我会继续让应用生成得更快、更自然，扩展 Crazy 能管理的系统能力，改善浏览器与复杂应用的连续使用体验。这个项目会保持开放，也会一直保留最初那份自由想象的感觉。
+Next, I will continue making app generation faster and more natural, expand the system capabilities that Crazy can manage, and improve the continuous-use experience for browsers and complex apps. This project will stay open, and it will always keep that original sense of free imagination.
 
-## 参与 / 想法
+## Contributing / Ideas
 
-这是一个个人项目，但非常欢迎新的想法。你可以通过 [Issue](https://github.com/Utter-pulsar/crazy-os/issues) 提议功能、分享界面草图，或者告诉我某个地方没有按照你期待的方式工作。
+This is a personal project, but new ideas are very welcome. You can use [Issue](https://github.com/Utter-pulsar/crazy-os/issues) to propose features, share interface sketches, or tell me where something did not work the way you expected.
 
-如果要提交代码，请先运行：
+If you want to submit code, please run:
 
 ```bash
 npm run typecheck
@@ -164,8 +168,8 @@ npm run test:runtime
 npm run build
 ```
 
-## 许可证
+## License
 
-Crazy OS 使用 [GNU General Public License v3.0](./LICENSE) 开源。
+Crazy OS is open source under the [GNU General Public License v3.0](./LICENSE).
 
-任何对本项目的修改版本或衍生作品，在对外分发时都需要继续使用 GNU GPL v3.0，并保留原始版权与许可证声明、清楚说明所做的修改，同时向接收者提供对应源代码。完整条款请阅读 [LICENSE](./LICENSE)。
+Any modified versions or derivative works of this project that are distributed externally must continue to use GNU GPL v3.0, preserve the original copyright and license notices, clearly explain the changes that were made, and provide the corresponding source code to recipients. For the full terms, please read [LICENSE](./LICENSE).

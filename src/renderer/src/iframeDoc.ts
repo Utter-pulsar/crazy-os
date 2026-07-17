@@ -1,15 +1,17 @@
+import { iframeFontUrls } from './assets'
+
 // Builds the document that wraps the model's body-only HTML inside the view iframe.
 // The host owns the <head>: fonts, the hand-drawn theme, and a trusted runtime
 // script. The model only ever supplies <body> content. This is what keeps the
 // aesthetic stable across regenerations — structure varies, style is pinned.
 
-// Fonts are served same-origin from /public/fonts, so the iframe (same-origin) can load
-// them without CORS. location.origin makes this work under both the dev server and file://.
-function fontFaces(origin: string): string {
+// Fonts come from the renderer module graph, so Vite rewrites them to stable dev/prod
+// URLs and the iframe can load them under both the dev server and packaged file:// builds.
+function fontFaces(): string {
   return `
-@font-face { font-family:'Excalifont'; src:url('${origin}/fonts/Excalifont-Regular.woff2') format('woff2'); font-display:swap; }
-@font-face { font-family:'Xiaolai'; src:url('${origin}/fonts/Xiaolai-Regular.ttf') format('truetype'); font-display:swap; }
-@font-face { font-family:'XiaolaiMono'; src:url('${origin}/fonts/XiaolaiMono-Regular.ttf') format('truetype'); font-display:swap; }`
+@font-face { font-family:'Excalifont'; src:url('${iframeFontUrls.excalifont}') format('woff2'); font-display:swap; }
+@font-face { font-family:'Xiaolai'; src:url('${iframeFontUrls.xiaolai}') format('truetype'); font-display:swap; }
+@font-face { font-family:'XiaolaiMono'; src:url('${iframeFontUrls.xiaolaiMono}') format('truetype'); font-display:swap; }`
 }
 
 // Hand-drawn theme. The wonky asymmetric border-radius is the classic sketch-box trick;
@@ -588,10 +590,10 @@ const CSP = "connect-src 'none'; object-src 'none'; base-uri 'none'"
 
 /** The head + opening body tag written before any model output streams in. `dark` starts the
  *  document in dark mode so apps follow the system theme from the first paint. */
-export function viewDocHead(origin: string, dark = false): string {
+export function viewDocHead(dark = false): string {
   return `<!doctype html><html lang="zh-CN"${dark ? ' class="dark"' : ''}><head><meta charset="utf-8" />
 <meta http-equiv="Content-Security-Policy" content="${CSP}" />
-<style>${fontFaces(origin)}${THEME_CSS}</style>
+<style>${fontFaces()}${THEME_CSS}</style>
 <script>${HOST_SCRIPT}<\/script>
 </head><body>`
 }

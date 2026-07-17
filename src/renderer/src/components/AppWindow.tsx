@@ -2054,7 +2054,7 @@ function createStagedDocument(dark: boolean): StagedDocument {
     throw new Error('无法创建应用的无闪烁 staging 文档')
   }
   doc.open()
-  doc.write(viewDocHead(location.origin, dark))
+  doc.write(viewDocHead(dark))
   return { doc, dispose: () => frame.remove() }
 }
 
@@ -2216,7 +2216,7 @@ function reconcileBody(d: Document, html: string, removeMissing: boolean): void 
 // Write a full fresh document (used for a 'replace' patch), running its scripts reliably.
 function writeDocFull(d: Document, html: string, dark: boolean): void {
   d.open()
-  d.write(viewDocHead(location.origin, dark))
+  d.write(viewDocHead(dark))
   const doneIds: string[] = []
   const sw = makeStreamWriter(d, { onPlan: () => {}, onDone: (id) => doneIds.push(id) })
   sw.write(html)

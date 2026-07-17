@@ -4,6 +4,7 @@ import type { FsNode, FsTree } from '@shared/types'
 import { useStore } from '../store'
 import { Icon, type IconName } from './Icon'
 import { Clock } from './Clock'
+import { appIconUrl } from '../assets'
 import { cloneInto, commitFsDraft, dispatchFs, FS_CHANGED_EVENT, getClip, iconFor, isOwnFs, moveInto as moveNodesInto, newOrigin, resolveShortcutTarget, setClip, trashNodes } from '../lib/fsClipboard'
 
 /**
@@ -316,7 +317,7 @@ export function Desktop(): JSX.Element {
 
       {/* centered branding */}
       <div className="pointer-events-none absolute inset-0 flex select-none flex-col items-center justify-center gap-3">
-        <img src="/icon.png" alt="" className="h-40 w-40 opacity-95 drop-shadow-[3px_4px_0_rgba(43,43,43,0.18)]" />
+        <img src={appIconUrl} alt="" className="h-40 w-40 opacity-95 drop-shadow-[3px_4px_0_rgba(43,43,43,0.18)]" />
         <h1 className="font-doodle text-6xl font-bold tracking-wide text-ink">Crazy OS</h1>
       </div>
 

@@ -8,6 +8,7 @@ import { DoodleBox } from './DoodleBox'
 import { DoodleTextarea } from './DoodleField'
 import { Icon } from './Icon'
 import { useDoodleScrollbar } from '../lib/useDoodleScrollbar'
+import { appIconUrl } from '../assets'
 
 /**
  * The system-agent surface (dock's rope-ring icon). Two shapes:
@@ -344,7 +345,7 @@ export function AgentPanel(): JSX.Element {
           onPointerCancel={onHeaderUp}
           className="flex select-none items-center gap-1.5 border-b-2 border-dashed border-ink/25 pb-2 cursor-grab active:cursor-grabbing"
         >
-          <img src="/icon.png" alt="" className="h-6 w-6" draggable={false} />
+          <img src={appIconUrl} alt="" className="h-6 w-6" draggable={false} />
           <span className="font-bold">crazy 助手</span>
           <span className="grow" />
           <HeaderBtn label="新会话" onClick={startNewSession} icon="new-chat" />
