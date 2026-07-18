@@ -143,12 +143,13 @@ sudo chmod 4755 "/opt/Crazy OS/chrome-sandbox"
 sudo gtk-update-icon-cache -f /usr/share/icons/hicolor
 ```
 
-发布版可以从左上角三条杠进入「版本」，点击「检查更新」。Crazy OS 会检查 [Utter-pulsar/crazy-os](https://github.com/Utter-pulsar/crazy-os) 的正式 Release；如果发现更高版本，会自动下载、安装并重启。开发模式不会检查更新。macOS 自动更新需要经过有效签名，Linux 推荐使用 AppImage 版本。
-
 
 ## 技术栈
 
 Electron 42 · electron-vite 5 · React 19 · TypeScript 6 · Zustand 5 · Tailwind CSS 3 · Framer Motion · Rough.js
+
+本项目使用了 Excalidraw 风格的字体，感谢 Excalidraw 团队： [excalidraw/excalidraw](https://github.com/excalidraw/excalidraw)
+
 
 ## 状态与计划
 

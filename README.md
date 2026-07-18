@@ -143,12 +143,12 @@ sudo chmod 4755 "/opt/Crazy OS/chrome-sandbox"
 sudo gtk-update-icon-cache -f /usr/share/icons/hicolor
 ```
 
-In the release build, open "Version" from the three-line menu in the upper-left corner and click "Check for Updates". Crazy OS will check the official Release of [Utter-pulsar/crazy-os](https://github.com/Utter-pulsar/crazy-os). If it finds a newer version, it will automatically download, install, and relaunch. Development mode does not check for updates. macOS auto-update requires valid signing, and on Linux the AppImage version is recommended.
-
 
 ## Tech Stack
 
 Electron 42 · electron-vite 5 · React 19 · TypeScript 6 · Zustand 5 · Tailwind CSS 3 · Framer Motion · Rough.js
+
+The project uses an Excalidraw-style typeface. Many thanks to the Excalidraw team: [excalidraw/excalidraw](https://github.com/excalidraw/excalidraw)
 
 ## Status and Plans
 
